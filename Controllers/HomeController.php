@@ -7,6 +7,7 @@ use Models\Usuarios;
 class HomeController extends Controller{
     //
     public function index(){
+        echo "METODO: ".$this->getMethod()."\n";
         print_r($this->getRequestData());
     }
 }

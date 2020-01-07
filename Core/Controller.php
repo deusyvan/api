@@ -14,17 +14,23 @@ class Controller {
                 break;
             case 'PUT':
             case 'DELETE':
-                $input = file_get_contents('php://input');
-                parse_str($input,$data);
-                
+                parse_str(file_get_contents('php://input'),$data);
+                return (array) $data;
                 break;
             case 'POST':
-                
+                $data = json_decode(file_get_contents('php://input'));
+                //Proteção para todos os métodos funcionarem
+                if(is_null($data)){
+                    $data = $_POST;
+                }
+                return (array) $data;
                 break;
         }
     }
     //Fazer o retorno em json
     public function returnJson($array) {
-        ;
+        header("Content-Type: application/json");
+        echo json_encode($array);
+        exit;//Parar a execução para não ter risco de quebrar json
     }
 }

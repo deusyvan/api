@@ -1,4 +1,5 @@
 <?php 
+namespace Core;
 
 class Core {
     
@@ -29,13 +30,23 @@ class Core {
                 $params = $url;
             }
             
-            
         } else {
-            $currentController = 'homeController';
+            $currentController = 'HomeController';
             $currentAction = 'index';
         }
         
-        $c = new $currentController();
+        $currentController = ucfirst($currentController);//Colocando somente a primeira letra em maiuscula
+        
+        $prefix = '\Controllers\\';
+        
+        if(!file_exists('Controllers/'.$currentController.'.php') || 
+            !method_exists($prefix.$currentController, $currentAction)){
+            $currentController = 'NotFoundController';
+            $currentaction = 'index';
+        }
+        
+        $newController = $prefix.$currentController;
+        $c = new $newController();
         
         call_user_func_array(array($c,$currentAction), $params);
     }

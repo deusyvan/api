@@ -5,8 +5,8 @@ $config = array();
 
 if(ENVIRONMENT == 'development'){
     
-    define("BASE_URL", "http://localhost/api/");
-    $config['dbname'] = 'todo';
+    define("BASE_URL", "http://localhost/estrutura_mvc/");
+    $config['dbname'] = 'estrutura_mvc';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'dfsweb';
     $config['dbpass'] = '28033011';
@@ -14,7 +14,7 @@ if(ENVIRONMENT == 'development'){
 } else {
     
     define("BASE_URL", "http://meusite.com.br/");
-    $config['dbname'] = 'todo';
+    $config['dbname'] = 'estrutura_mvc';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'dfsweb';
     $config['dbpass'] = '28033011';

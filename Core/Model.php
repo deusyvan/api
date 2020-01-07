@@ -1,6 +1,7 @@
 <?php 
+namespace Core;
 
-class model {
+class Model {
     
     protected $db;
     

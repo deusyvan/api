@@ -5,7 +5,7 @@ use \Core\Controller;
 use Models\Usuarios;
 
 class HomeController extends Controller{
-    
+    //
     public function index(){
         echo "METODO: ".$this->getMethod();
     }

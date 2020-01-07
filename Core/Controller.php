@@ -2,20 +2,16 @@
 namespace Core;
 
 class Controller {
-    
-    public function loadView($viewName, $viewData = array()){
-        
-        extract($viewData);
-        require 'Views/'.$viewName.'.php';
-        
+    //Para pegar os metodos
+    public function getMethod() {
+        return $_SERVER['REQUEST_METHOD'];
     }
-    
-    public function loadTemplate($viewName, $viewData = array()){
-        require 'Views/template.php';
+    //Pegar dados da requisição
+    public function getRequestData() {
+        ;
     }
-    
-    public function loadViewInTemplate($viewName, $viewData = array()){
-        extract($viewData);
-        require 'Views/'.$viewName.'.php';
+    //Fazer o retorno em json
+    public function returnJson($array) {
+        ;
     }
 }

@@ -7,7 +7,10 @@ use Models\Usuarios;
 class HomeController extends Controller{
     //
     public function index(){
-        echo "METODO: ".$this->getMethod()."\n";
-        print_r($this->getRequestData());
+        $array = array(
+            'nome' => 'Antonio',
+            'idade' => '10'
+        );
+        $this->returnJson($array);
     }
 }

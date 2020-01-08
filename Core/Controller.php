@@ -33,4 +33,18 @@ class Controller {
         echo json_encode($array);
         exit;//Parar a execução para não ter risco de quebrar json
     }
+    //Para Views
+    public function loadView($viewName, $viewData = array()){
+        extract($viewData);
+        require 'Views/'.$viewName.'.php';
+    }
+    
+    public function loadTemplate($viewName, $viewData = array()){
+        require 'Views/template.php';
+    }
+    
+    public function loadViewInTemplate($viewName, $viewData = array()){
+        extract($viewData);
+        require 'Views/'.$viewName.'.php';
+    }
 }
